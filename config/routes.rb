@@ -53,4 +53,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+    get '/' => 'users#home'
+
+    get '/login' => 'sessions#new'
+    get '/sign_up' => 'sessions#sign_up'
+    post '/session/create' => 'sessions#create'
 end
