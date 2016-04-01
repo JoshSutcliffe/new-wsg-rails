@@ -3,9 +3,7 @@ class Stadium < ActiveRecord::Base
   belongs_to :users
   has_many :comments
 
-  validates_uniqueness_of :name
-  validates_presence_of :city
-  validates_presence_of :pictures, length: { minimum: 2 }
-  validates_presence_of :country
-  validates_presence_of :clubs
+  validates :name, uniqueness: true
+  validates :name, :city, :country, :clubs, presence: true
+
 end

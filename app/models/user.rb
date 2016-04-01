@@ -10,4 +10,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates_presence_of :email
   validates_presence_of :password
+
+  validates :email, :username, uniqueness: true
+  validates :username, :email, :password, presence: true
 end
