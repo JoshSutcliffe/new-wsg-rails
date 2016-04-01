@@ -3,13 +3,25 @@ class SessionsController < ApplicationController
     # Its inherited from application SessionController
 
 
-  def new
+  def login
 
   end
 
 
-  def sign_up
-    
+  def new
+    # Serach for user
+    user = User.find_by(email: params[:email])
+    # Authenticate the password
+    if user && user.authenticate(params[:password])
+      # create a session
+      session[:user_id] = user.id
+      # redirect to homepage
+      redirect_to '/'
+    else
+      # stay on the login form for now
+      @user = User.find_by(email: params[:email])
+      render :new
+    end
   end
 
   # Now creating a user

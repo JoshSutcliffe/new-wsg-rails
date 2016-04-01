@@ -56,7 +56,8 @@ Rails.application.routes.draw do
 
     get '/' => 'users#home'
 
-    get '/login' => 'sessions#new'
+    get '/login' => 'sessions#login'
+    post '/login' => 'sessions#new'
     get '/sign_up' => 'sessions#sign_up'
     post '/session/create' => 'sessions#create'
     delete 'session' => 'sessions#delete'
