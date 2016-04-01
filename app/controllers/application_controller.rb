@@ -12,4 +12,17 @@ class ApplicationController < ActionController::Base
     User.find_by(id: session[:user_id])
   end
   helper_method :current_user
+
+  def liked?(current_stadium)
+    if logged_in? 
+      !!current_user.likes.find_by(stadium_id: current_stadium)
+    end
+  end
+  helper_method :liked?
+
+  def current_user_name
+    User.find_by(id: session[:user_id]).username
+  end
+  helper_method :current_user_name
+
 end

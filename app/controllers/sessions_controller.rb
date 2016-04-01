@@ -24,12 +24,12 @@ class SessionsController < ApplicationController
       if @user.email && user.authenticate(params[:password])
         session[:user_id] = user.id
         # redirect to home page
-        redirect to '/'
+        redirect_to '/'
       end
     else
       # Shows error message on login page
-      # erb :create_account
+      redirect_to '/sign_up'
     end
   end
-  
+
 end
