@@ -59,4 +59,5 @@ Rails.application.routes.draw do
     get '/login' => 'sessions#new'
     get '/sign_up' => 'sessions#sign_up'
     post '/session/create' => 'sessions#create'
+    delete 'session' => 'sessions#delete'
 end
