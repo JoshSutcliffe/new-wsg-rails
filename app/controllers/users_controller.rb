@@ -16,11 +16,10 @@ class UsersController < ApplicationController
       @stadium.country = params[:country]
       @stadium.clubs = params[:clubs]
       @stadium.capacity = params[:capacity]
+      @stadium.picture = params[:picture]
       @stadium.bio = params[:bio]
 
-      @photo = Photo.new
-      @photo.name = params[:picture]
-      if @stadium.save && @photo.save
+      if @stadium.save
         redirect_to '/'
       else
         render :new

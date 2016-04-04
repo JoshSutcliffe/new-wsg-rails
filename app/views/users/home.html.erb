@@ -14,6 +14,7 @@
 <% @stadia.each do |stadium| %>
   <div class="row">
     <div class="col s12"><a href="/stadium/<%= stadium.id %>"><h4><%= stadium.name %></h4></a></div>
+      <div class="card-panel hoverable"><a href="/stadium/<%= stadium.id %>"><img src="<%= stadium.picture %>" alt=""></a></div>
     <div class="col s6 m4 l4"><p>Country: <%= stadium.country %></p></div>
     <div class="col s6 m4 l4"><p>Clubs: <%= stadium.clubs %></p></div>
 
