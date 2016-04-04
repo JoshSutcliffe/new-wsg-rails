@@ -8,7 +8,7 @@
   <% end %>
 <% end %>
 
-<form action="/stadium/new" enctype="multipart/form-data" method="post">
+<form action="/stadium/new" method="post">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <label for="">Stadium Name</label>
   <input type="text" name="name" placeholder="Required">
@@ -24,6 +24,9 @@
   
   <label for="">Capacity</label>
   <input type="number" name="capacity" placeholder="Required">
+
+  <label for="">Picture</label>
+  <input type="file" name="picture" placeholder="Required"
 
   <label for="">Stadium Bio</label>
   <input type="text" name="bio" placeholder="Max 1000 Characters">
