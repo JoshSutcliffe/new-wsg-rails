@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   #   end
 
     get '/' => 'users#home'
+    get '/stadium/new' => 'users#new'
+    post '/stadium/new' => 'users#create'
 
     get '/login' => 'sessions#login'
     post '/login' => 'sessions#new'

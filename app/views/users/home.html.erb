@@ -1,4 +1,4 @@
-<h1>Home page</h1>
+<h1>World Stadium Guide</h1>
 
 <% if logged_in? %>
   <form action="/session" method="post">
@@ -7,4 +7,28 @@
     <button class="btn waves-effect">Logout</button>
     <li>Logged in as: <%= current_user_name %></li>
   </form>
+<% end %>
+
+<h5><a href="/stadium/new">Add A Stadium</a></h5>
+
+<% @stadia.each do |stadium| %>
+  <div class="row">
+    <div class="col s12"><a href="/stadium/<%= stadium.id %>"><h4><%= stadium.name %></h4></a></div>
+    <div class="col s6 m4 l4"><p>Country: <%= stadium.country %></p></div>
+    <div class="col s6 m4 l4"><p>Clubs: <%= stadium.clubs %></p></div>
+
+    <% if liked?(stadium.id) %>
+      <form action="/likes" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="stadium_id" value="<%= stadium.id %>">
+         <div class="col s6 m4 l4"><button class="btn waves-effect">Unlike</button></div>
+      </form>
+    <% else %>
+      <form action="/likes" method="post">
+        <input type="hidden" name="stadium_id" value="<%= stadium.id %>">
+         <div class="col s6 m4 l4"><button class="btn waves-effect">Like</button></div>
+      </form> 
+  
+    <% end  %>
+  </div>
 <% end %>

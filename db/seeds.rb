@@ -5,3 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Stadium.delete_all
+Like.delete_all
+
+count = 1
+
+3.times do
+  Stadium.create(name: "Stadium #{count}", city: "City #{count}", country: "Country #{count}", clubs: "Clubs #{count}", bio: "Stadium #{count}")
+  count += 1
+end
+

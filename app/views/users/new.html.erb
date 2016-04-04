@@ -1,0 +1,32 @@
+<h1>Add New Stadium</h1>
+
+<% if @stadium %>
+  <% @stadium.errors.full_messages.each do |error| %>
+    <ul>
+      <li><%= error %></li>
+    </ul>
+  <% end %>
+<% end %>
+
+<form action="/stadium/new" enctype="multipart/form-data" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <label for="">Stadium Name</label>
+  <input type="text" name="name" placeholder="Required">
+
+  <label for="">City</label>
+  <input type="text" name="city" placeholder="Required">
+
+  <label for="">Country</label>
+  <input type="text" name="country" placeholder="Required">
+
+  <label for="">What Clubs Play Here</label>
+  <input type="text" name="clubs" placeholder="Required">
+  
+  <label for="">Capacity</label>
+  <input type="number" name="capacity" placeholder="Required">
+
+  <label for="">Stadium Bio</label>
+  <input type="text" name="bio" placeholder="Max 1000 Characters">
+
+  <button class="btn waves-effect">Submit</button>
+</form>
