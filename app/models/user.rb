@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :stadia
   has_many :comments
 
+  has_many :stadia, through: :likes
+
   # attr_accessor :password
 
   has_secure_password

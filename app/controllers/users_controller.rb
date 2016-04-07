@@ -29,4 +29,8 @@ class UsersController < ApplicationController
       redirect_to '/login'
     end
   end
+
+  def show
+    @selected_stadium = Stadium.find(params[:id])
+  end
 end
